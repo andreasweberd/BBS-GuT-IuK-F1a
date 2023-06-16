@@ -19,7 +19,7 @@ import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
     AppComponent,
     HomeComponent,
     NotfoundpageComponent,
-    OffersComponent
+    OffersComponent,
     DeliveryMapComponent
    ],
   imports: [
