@@ -25,3 +25,4 @@ replay_pid*
 /.vs/PizzaBBS/v17
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
+/BBSPizzaFrontend/package-lock.json
