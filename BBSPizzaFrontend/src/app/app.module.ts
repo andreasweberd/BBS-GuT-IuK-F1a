@@ -11,7 +11,7 @@ import { NotfoundpageComponent } from 'src/notfoundpage/notfoundpage.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
+import { DeliveryMapComponent } from '../delivery-map/delivery-map.component';
 
 @NgModule({
   declarations: [
