@@ -1,1 +1,20 @@
-<p>offers works!</p>
+<div class="container-1">
+<ng-container *ngFor="let Pizza of offers">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ Pizza.title }}</mat-card-title>
+      <mat-card-subtitle>teststs</mat-card-subtitle>
+    </mat-card-header>
+    <img class="card-image" mat-card-image [src]="Pizza.img" alt="Pizza Salami">
+    <mat-card-content>
+      <p>
+        {{ Pizza.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Bestellen</button>
+      <button mat-button>Konfigurieren</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+</div>
