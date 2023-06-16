@@ -23,3 +23,5 @@
 hs_err_pid*
 replay_pid*
 /.vs/PizzaBBS/v17
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
