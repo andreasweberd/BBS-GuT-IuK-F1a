@@ -1,17 +1,16 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { HomeComponent } from 'src/home/home.component';
+import { NotfoundpageComponent } from 'src/notfoundpage/notfoundpage.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    data: { needsFrame: false },
-    children: [
-      {
-
-      }
-    ]
+    component: HomeComponent
+  },
+  {
+    path: '**',
+    component: NotfoundpageComponent
   }
 ];
 

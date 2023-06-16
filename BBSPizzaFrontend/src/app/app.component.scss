@@ -3,7 +3,18 @@
   min-height: 100%;
 
   & .topnav_wrapper{
+    min-width: 100%;
 
+    &::ng-deep{
+      & .mat-toolbar{
+        padding: 0 16rem 0 16rem;
+        background-color: black;
+
+        & span{
+          color: white;
+        }
+      }
+    }
   }
 
   & .footer_wrapper{
