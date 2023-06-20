@@ -7,13 +7,35 @@
     </mat-card-header>
     <img class="card-image" mat-card-image [src]="Pizza.img" alt="Pizza Salami">
     <mat-card-content>
+      <p class="pizzaPrice">
+      {{Pizza.price | currency:'EUR'}}
+      </p>
+    </mat-card-content>
+    <mat-card-content>
       <p>
         {{ Pizza.description }}
       </p>
     </mat-card-content>
+    <mat-card-content>
+      <p>
+        {{ Pizza.ingredients }}
+      </p>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Größe</mat-label>
+        <mat-select name="size">
+          <mat-option *ngFor="let size of sizesArray" [value]="size">
+            {{size}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Bestellen</button>
-      <button mat-button>Konfigurieren</button>
+      <div class="example-button-row">
+      <button mat-flat-button>Konfigurieren</button>
+      <button mat-flat-button color="primary">Zum Warenkorb</button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </ng-container>

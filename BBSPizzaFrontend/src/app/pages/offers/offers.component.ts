@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MDCRipple} from '@material/ripple';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {FormControl} from "@angular/forms";
 
 
 @Component({
@@ -11,6 +12,9 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class OffersComponent {
   offers: Pizza[] = [];
+  sizesArray: String[] = ["Klein", "Mittel", "Groß"];
+  sizes = new FormControl();
+  selectedSize: any;
 
   constructor() {
   }

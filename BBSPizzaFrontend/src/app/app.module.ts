@@ -13,6 +13,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { OffersComponent } from './pages/offers/offers.component';
 import {MatCardModule} from "@angular/material/card";
+import {MatSelectModule} from "@angular/material/select";
+import {Component} from '@angular/core';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgIf, NgFor} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,11 @@ import {MatCardModule} from "@angular/material/card";
     MatButtonModule,
     MatCardModule,
     MatCardModule,
+    MatSelectModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgFor
   ],
   providers: [],
   bootstrap: [AppComponent]
