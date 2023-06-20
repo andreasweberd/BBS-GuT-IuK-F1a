@@ -3,6 +3,8 @@ import {MDCRipple} from '@material/ripple';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {FormControl} from "@angular/forms";
+import { MatGridListModule } from "@angular/material/grid-list";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -12,11 +14,13 @@ import {FormControl} from "@angular/forms";
 })
 export class OffersComponent {
   offers: Pizza[] = [];
+  cart: Pizza[] = [];
   sizesArray: String[] = ["Klein", "Mittel", "Groß"];
   sizes = new FormControl();
   selectedSize: any;
+  cartPrice: number = 0;
 
-  constructor() {
+  constructor(private snackBar: MatSnackBar) {
   }
 
 ngOnInit() {
@@ -53,13 +57,40 @@ createPizzas() {
   this.offers.push(PizzaFunghi);
   this.offers.push(PizzaThunfisch);
 }
+
+  addToCart(pizza: Pizza) {
+    this.cart.push(pizza);
+    this.calculateCartPrice();
+    this.openSnackBar("Artikel hinzugefügt", "Entfernen");
+  }
+
+  calculateCartPrice() {
+    this.cartPrice = 0;
+    this.cart.forEach(item => {
+        this.cartPrice += item.price;
+    });
+  }
+
+  removeItemFromCart(item: Pizza) {
+    const index = this.cart.indexOf(item, 0)
+    if (index > -1) {
+      this.cart.splice(index, 1);
+    }
+    console.log(this.cart);
+    this.calculateCartPrice();
+    this.openSnackBar("Artikel entfernt", "Rückgängig machen");
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action);
+  }
 }
 
 
 export interface Pizza {
   title: string | undefined;
   img: string | undefined;
-  price: number | undefined;
+  price: number;
   description: string | undefined;
   ingredients: string[] | undefined;
 }

@@ -18,6 +18,9 @@ import {Component} from '@angular/core';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf, NgFor} from '@angular/common';
 import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatList, MatListModule} from "@angular/material/list";
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -39,8 +42,12 @@ import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
     MatCardModule,
     MatSelectModule,
     MatSelectModule,
+    MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
+    MatListModule,
+    MatButtonModule,
+    MatSnackBarModule,
     NgFor
   ],
   providers: [],

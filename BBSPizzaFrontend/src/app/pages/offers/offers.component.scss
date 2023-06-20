@@ -42,3 +42,15 @@
   border-style: solid;
   border-width: medium;
 }
+
+
+.offer-container {
+  margin-top: 200px;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.summary {
+  position: fixed;
+  overflow: unset;
+}
