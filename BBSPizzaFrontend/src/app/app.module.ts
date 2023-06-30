@@ -11,7 +11,6 @@ import {DeliveryMapComponent } from '../delivery-map/delivery-map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
 import { CustomizerComponent } from './pages/customizer/customizer.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
