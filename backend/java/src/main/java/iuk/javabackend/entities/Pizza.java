@@ -21,7 +21,7 @@ public class Pizza {
     private float preisklein;
     private float preisgross;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "zutaten")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pizza")
     private List<Pizzazutaten> zutaten = new ArrayList<>();
 
     public Pizza() {
