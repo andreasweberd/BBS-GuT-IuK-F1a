@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { RouteConfigLoadEnd } from '@angular/router';
 import * as Leaflet from 'leaflet';
+import 'leaflet-routing-machine';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 @Component({
@@ -47,6 +49,7 @@ export class DeliveryMapComponent {
   onMapReady($event: Leaflet.Map) {
     this.map = $event;
     this.initMarkers();
+    this.addRoute();
   }
 
   mapClicked($event: any) {
@@ -59,7 +62,26 @@ export class DeliveryMapComponent {
 
   markerDragEnd($event: any, index: number) {
     console.log($event.target.getLatLng());
-  } 
+  }
+  
+  addRoute(){
+    var route = this.generateRoute(49.747897050000006, 6.6375348794641695);
+    route.addTo(this.map);
+  }
+
+
+  generateRoute(lat: number, lng: number){
+   return Leaflet.Routing.control({
+      router: Leaflet.Routing.osrmv1({
+          serviceUrl: `http://router.project-osrm.org/route/v1/`
+      }),
+      show: false,
+      waypoints: [
+          Leaflet.latLng(49.7593244, 6.6354235),
+          Leaflet.latLng(lat, lng)
+      ]
+  });
+  }
 }
 
 
