@@ -24,5 +24,4 @@ public class HomeController {
         test.put("Bsp", 2);
         return test;
     }
-
 }

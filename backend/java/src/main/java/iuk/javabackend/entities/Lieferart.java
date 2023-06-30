@@ -11,7 +11,7 @@ public class Lieferart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
 
     private String name;
     private double preis;

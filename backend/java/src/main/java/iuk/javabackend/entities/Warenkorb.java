@@ -11,7 +11,7 @@ public class Warenkorb {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
 
     private int pizza;
     private String groesse;
