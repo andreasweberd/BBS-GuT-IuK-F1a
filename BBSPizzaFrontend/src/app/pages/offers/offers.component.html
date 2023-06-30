@@ -54,7 +54,7 @@
             <span matListItemLine>17:00 Uhr</span>
           </mat-list-item>
           <mat-divider></mat-divider>
-          <mat-list-item *ngIf="cart.length == 0"> <h5> Dein Warenkorb ist zurzeit leer</h5></mat-list-item>
+          <mat-list-item *ngIf="cart.length == 0"> <h4> Dein Warenkorb ist zurzeit leer</h4></mat-list-item>
           <mat-list-item *ngFor="let item of cart">
             <p style="text-align:left" matListItemTitle>
               {{item.title}}

@@ -14,6 +14,13 @@ Realisieren einer (online) Pizzeria mit Weboberfläche (HTML, Javascript) mit Be
 - Deployment, Dokumentation: Anton, Osama, Alex, Houssem, Nils, Lars 
 
 
+Philipp = Offers-Overview
+Dimi = Login
+Lukas = Konfigurierung
+Eric = Live Map
+Jan = Benutzerübersicht
+
+
 
 
 

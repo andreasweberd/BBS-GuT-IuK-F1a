@@ -7,6 +7,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 
+
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
@@ -76,7 +77,6 @@ createPizzas() {
     if (index > -1) {
       this.cart.splice(index, 1);
     }
-    console.log(this.cart);
     this.calculateCartPrice();
     this.openSnackBar("Artikel entfernt", "Rückgängig machen");
   }
