@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from 'src/home/home.component';
-import { DeliveryMapComponent } from '../delivery-map/delivery-map.component';
-import { NotfoundpageComponent } from 'src/notfoundpage/notfoundpage.component';
+import { HomeComponent } from 'src/app/pages/home/home.component';
+import { NotfoundpageComponent } from 'src/app/pages/notfoundpage/notfoundpage.component';
+import { OffersComponent} from "./pages/offers/offers.component";
+import { CustomizerComponent } from './pages/customizer/customizer.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'tracking',
     component: DeliveryMapComponent
+  },
+  {
+    path: 'offers',
+    component: OffersComponent
   },
   {
     path: '**',
