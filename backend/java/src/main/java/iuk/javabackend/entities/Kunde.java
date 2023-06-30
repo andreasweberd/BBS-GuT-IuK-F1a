@@ -22,7 +22,7 @@ public class Kunde {
     private int telefonnummer;
 
     @ManyToOne()
-    @JoinColumn(name = "") // TODO
+    @JoinColumn(name = "zahlungsart")
     private Zahlungsart zahlungsart;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "kunde")

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -17,8 +19,8 @@ public class Zahlungsart {
     private String name;
 
     @OneToMany(mappedBy = "zahlungsart")
-    private Kunde kunde;
+    private List<Kunde> kunde;
 
     @OneToMany(mappedBy = "zahlungsart")
-    private Bestellung bestellung;
+    private List<Bestellung> bestellung;
 }
