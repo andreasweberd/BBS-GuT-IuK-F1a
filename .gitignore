@@ -26,3 +26,9 @@ replay_pid*
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
 /BBSPizzaFrontend/package-lock.json
+
+
+.idea/
+/.idea/
+out/
+/out/
