@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,8 +20,12 @@ public class Kunde {
     private String nachname;
     private Date geburtsdatum;
     private int telefonnummer;
-    private int zahlungsart;
 
+    @ManyToOne()
+    @JoinColumn(name = "zahlungsart")
+    private Zahlungsart zahlungsart;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kunde")
+    private List<Bestellung> bestellungen;
 
 }
