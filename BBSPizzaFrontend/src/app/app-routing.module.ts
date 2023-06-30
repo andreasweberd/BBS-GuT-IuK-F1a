@@ -11,6 +11,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'tracking',
+    component: DeliveryMapComponent
+  },
+  {
     path: 'offers',
     component: OffersComponent
   },

@@ -7,7 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { NotfoundpageComponent } from 'src/app/pages/notfoundpage/notfoundpage.component';
-
+import {DeliveryMapComponent } from '../delivery-map/delivery-map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
@@ -50,6 +51,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    LeafletModule,
     MatDialogModule,
     MatTreeModule,
     MatCheckboxModule,
