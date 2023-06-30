@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
+@Entity
+@Table(name = "mitarbeiter")
 public class Mitarbeiter {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,4 +16,7 @@ public class Mitarbeiter {
 
     private String vorname;
     private String nachname;
+
+    @OneToMany(mappedBy = "mitarbeiter")
+    private Bestellung bestellung;
 }

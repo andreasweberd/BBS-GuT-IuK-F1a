@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
+@Entity
+@Table(name = "zahlungsart")
 public class Zahlungsart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,4 +15,10 @@ public class Zahlungsart {
     private int id;
 
     private String name;
+
+    @OneToMany(mappedBy = "zahlungsart")
+    private Kunde kunde;
+
+    @OneToMany(mappedBy = "zahlungsart")
+    private Bestellung bestellung;
 }
