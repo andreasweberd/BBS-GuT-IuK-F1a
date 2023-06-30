@@ -8,27 +8,44 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { NotfoundpageComponent } from 'src/app/pages/notfoundpage/notfoundpage.component';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import { OffersComponent } from './pages/offers/offers.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatSelectModule} from "@angular/material/select";
-import {Component} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgIf, NgFor} from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatList, MatListModule} from "@angular/material/list";
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { CustomizerComponent } from './pages/customizer/customizer.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ChecklistDatabase } from './pages/customizer/customizer.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatDividerModule} from '@angular/material/divider';
+import { MatExpansionModule} from '@angular/material/expansion';
+import { MatButtonModule} from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule} from '@angular/material/icon';
+import { MatButtonModule} from '@angular/material/button';
+import { OffersComponent } from './pages/offers/offers.component';
+import { MatCardModule} from "@angular/material/card";
+import { MatSelectModule} from "@angular/material/select";
+import { Component} from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgIf, NgFor} from '@angular/common';
+import { DeliveryMapComponent } from './delivery-map/delivery-map.component';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { MatList, MatListModule} from "@angular/material/list";
+import { MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotfoundpageComponent,
-    OffersComponent,
-    DeliveryMapComponent
+    DeliveryMapComponent,
+    CustomizerComponent
    ],
   imports: [
     BrowserModule,
@@ -38,9 +55,16 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatInputModule,
+    FormsModule,
+    MatDividerModule,
+    MatExpansionModule,
     MatCardModule,
-    MatCardModule,
-    MatSelectModule,
     MatSelectModule,
     MatGridListModule,
     FormsModule,
@@ -50,7 +74,10 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule,
     NgFor
   ],
-  providers: [],
+  providers: [
+    MatDialog,
+    ChecklistDatabase
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

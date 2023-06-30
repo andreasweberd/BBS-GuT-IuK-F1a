@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomizerComponent } from '../customizer/customizer.component';
 import {MDCRipple} from '@material/ripple';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -6,23 +8,23 @@ import {FormControl} from "@angular/forms";
 import { MatGridListModule } from "@angular/material/grid-list";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
-
-
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.scss'],
 })
 export class OffersComponent {
+  constructor(
+    public matDialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {}
+
   offers: Pizza[] = [];
   cart: Pizza[] = [];
   sizesArray: String[] = ["Klein", "Mittel", "Groß"];
   sizes = new FormControl();
   selectedSize: any;
   cartPrice: number = 0;
-
-  constructor(private snackBar: MatSnackBar) {
-  }
 
 ngOnInit() {
   this.createPizzas();
@@ -83,6 +85,13 @@ createPizzas() {
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action);
+  }
+  
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.matDialog.open(CustomizerComponent, {
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }
 
