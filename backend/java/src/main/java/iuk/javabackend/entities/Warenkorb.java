@@ -14,6 +14,9 @@ public class Warenkorb {
     private int id;
 
     private int pizza;
-    private String groesse;
+    private enum groesse {
+        klein,
+        gross
+    };
     private int bestellung;
 }
