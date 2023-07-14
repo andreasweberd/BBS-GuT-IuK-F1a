@@ -1,3 +1,58 @@
+
+.mat-mdc-card-content {
+ //display: flex;
+  flex-flow: row;
+  margin-top: 16px;
+}
+
+.container-1[_ngcontent-ng-c816522605] {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-bottom: 100px;
+  gap: 16px;
+  justify-content: center;
+  height: 100vh;
+  overflow: auto;
+}
+
+.offers-tile {
+  left: 0px;
+  width: 75% !important;
+  height: 100%;
+  margin-top: 0px!important;
+  overflow: auto;
+  position: unset!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.mat-grid-tile-content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+.mat-grid-tile-content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
 .example-card {
   max-width: 400px;
   cursor: pointer;
@@ -10,6 +65,7 @@
 }
 
 .container-1 {
+  height: 75%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -52,6 +108,7 @@
 
 
 .offer-container {
+  //margin-top: 200px;
   margin-top: 200px;
   overflow: auto;
   flex-grow: 1;
@@ -61,3 +118,37 @@
   position: fixed;
   overflow: unset;
 }
+:host{
+  height:100%;
+  width: 100%;
+}
+.offers-page-container {
+  height:100vh;
+  width: 100%;
+  display: flex;
+  & .items-container{
+    width: 75%;
+    padding:32px;
+
+    & .list-container{
+      height: calc( 100% - 64px);
+      overflow: auto;
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      gap:16px;
+      margin-right: 16px;
+      padding-right: 16px;
+
+      & mat-card{
+        flex:1;
+        max-width: unset;
+      }
+    }
+  }
+  & mat-grid-tile{
+    position: relative;
+    width: 25%;
+  }
+}
+
