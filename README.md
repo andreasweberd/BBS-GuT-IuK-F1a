@@ -7,7 +7,7 @@ Realisieren einer (online) Pizzeria mit Weboberfläche (HTML, Javascript) mit Be
 
 - Frontend Angular, CSS: Phillip, Lukas, Dimitrios, Jan, Eric
 
-- Backend C#: Michael, Robin, Edwin, Setareh, Lilli
+- Backend C#: Michael, Robin, Edwin, Setareh, Lili
 
 - Backend Java: Thomas, Westa,  Torben, Leo, Mouhamad
 
