@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +19,8 @@ public class Pizza {
     private int id;
 
     private String name;
-    private float preisklein;
-    private float preisgross;
+    private BigDecimal preisklein;
+    private BigDecimal preisgross;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pizza")
     private List<Pizzazutaten> zutaten = new ArrayList<>();
@@ -27,7 +28,7 @@ public class Pizza {
     public Pizza() {
     }
 
-    public Pizza(String name, float preisKlein, float preisGross) {
+    public Pizza(String name, BigDecimal preisKlein, BigDecimal preisGross) {
         this.name = name;
         this.preisklein = preisKlein;
         this.preisgross = preisGross;

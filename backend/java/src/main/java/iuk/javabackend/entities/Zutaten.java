@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class Zutaten {
     private int id;
 
     private String name;
-    private double preis;
+    private BigDecimal preis;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "zutaten")
     private List<Pizzazutaten> pizza;
@@ -25,7 +26,7 @@ public class Zutaten {
     public Zutaten() {
     }
 
-    public Zutaten(String name, double preis) {
+    public Zutaten(String name, BigDecimal preis) {
         this.name = name;
         this.preis = preis;
     }
