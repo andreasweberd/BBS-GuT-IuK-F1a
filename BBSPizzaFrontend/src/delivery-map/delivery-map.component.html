@@ -4,3 +4,7 @@
   (leafletMapReady)="onMapReady($event)"
   (leafletClick)="mapClicked($event)">
 </div>
+  <div class="delivery-stats-container" *ngIf="getTime();">
+  <div class="stat">{{getTime()}}</div>
+</div>
+

@@ -10,6 +10,9 @@ Leaflet.Icon.Default.imagePath = 'assets/';
   styleUrls: ['./delivery-map.component.scss']
 })
 export class DeliveryMapComponent {
+  time = 27;
+
+
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options = {
@@ -81,6 +84,10 @@ export class DeliveryMapComponent {
           Leaflet.latLng(lat, lng)
       ]
   });
+  }
+
+  getTime(){
+    return this.time;
   }
 }
 
