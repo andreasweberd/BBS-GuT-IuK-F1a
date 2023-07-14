@@ -142,7 +142,7 @@
 
       & mat-card{
         flex:1;
-        max-width: unset;
+        max-width: calc(50% - 8px);
       }
     }
   }
