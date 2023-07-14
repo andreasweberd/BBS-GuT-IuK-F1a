@@ -1,30 +1,40 @@
-<ng-container>
-  <div class="customizer_wrapper">
+<ng-container ></ng-container>
+<div
+  class="customizer_wrapper"
+  *ngIf="pizzaData != undefined"
+  [ngStyle]="{'background-image': 'url(' + pizzaData.img + ')'}"
+>
+  <div class="button_wrapper">
+    <button mat-flat-button mat-dialog-close>
+      <span class="material-icons md-36">close</span>
+    </button>
+    <button mat-flat-button color="primary">Zum Warenkorb</button>
+  </div>
 
-    <div class="header_wrapper">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Actions Buttons</mat-card-title>
-          <mat-card-subtitle>End</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions align="end">
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+  <div class="header_wrapper">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Gestalte {{ pizzaData.title }}</mat-card-title>
+        <mat-card-subtitle>{{ pizzaData.price | currency:'EUR' }}</mat-card-subtitle>
+        <mat-card-content
+          >Gestalte Deine Pizza mit Zutaten ganz nach Deinem Geschmack. Mit Teig
+          und Mozzarella. Legende für Allergene und Zusatzstoffe siehe
+          unten.</mat-card-content
+        >
+      </mat-card-header>
+    </mat-card>
+  </div>
 
-    <div class="content_wrapper">
-      <mat-accordion>
-        <div class="panel_wrapper">
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <div class="content_wrapper">
+    <mat-accordion>
+      <div class="panel_wrapper">
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Größe
-            </mat-panel-title>
-            <mat-panel-description>
-              Large
-            </mat-panel-description>
+            <mat-panel-title> Größe </mat-panel-title>
+            <mat-panel-description> Large </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="content_size">
             <mat-radio-group aria-label="Select an option">
@@ -36,45 +46,46 @@
         </mat-expansion-panel>
       </div>
       <div class="panel_wrapper">
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Zutaten
-            </mat-panel-title>
+            <mat-panel-title> Zutaten </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="content_ingredients">
-            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-              <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
-                <button mat-icon-button disabled></button>
-                <mat-checkbox class="checklist-leaf-node"
-                              [checked]="checklistSelection.isSelected(node)"
-                              (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
-              </mat-tree-node>
-
-              <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-                <button mat-icon-button matTreeNodeToggle
-                        [attr.aria-label]="'Toggle ' + node.item">
-                  <mat-icon class="mat-icon-rtl-mirror">
-                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                  </mat-icon>
-                </button>
-                <mat-checkbox [checked]="descendantsAllSelected(node)"
-                              [indeterminate]="descendantsPartiallySelected(node)"
-                              (change)="todoItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
-              </mat-tree-node>
-            </mat-tree>
+            <label>Hinzugefügte Zutaten</label>
+            <div
+              class="content_added_ingedients ingredients"
+              *ngFor="let pizzaIngredients of pizzaData.ingredients"
+            >
+              <p class="ingredient_name">{{ pizzaIngredients.name }}</p>
+              <p class="ingredient_price">{{ pizzaIngredients.price }}€</p>
+              <button mat-mini-fab color="primary"(click)="RemoveIngredientFromPizza(pizzaIngredients)">
+                -
+              </button>
+            </div>
+            <label>Zutaten</label>
+            <div
+              class="content_other_ingerdients ingredients"
+              *ngFor="let Ingredients of ingredientData"
+            >
+              <p class="ingredient_name">{{ Ingredients.name }}</p>
+              <p class="ingredient_price">{{ Ingredients.price }}€</p>
+              <button mat-mini-fab color="accent" (click)="AddIngredientToPizza(Ingredients)">
+                +
+              </button>
+            </div>
           </div>
         </mat-expansion-panel>
       </div>
       <div class="panel_wrapper">
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Größe
-            </mat-panel-title>
-            <mat-panel-description>
-              Large
-            </mat-panel-description>
+            <mat-panel-title> Notiz </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="content_notes">
             <mat-form-field class="example-full-width">
@@ -84,7 +95,66 @@
           </div>
         </mat-expansion-panel>
       </div>
-      </mat-accordion>
-    </div>
+      <div class="panel_wrapper">
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Nährwerte </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="content_nutrition">
+            <button
+              mat-raised-button
+              onclick="window.location.href='https://www.dominos.de/produkte/allergenezusatzstoffe?contentonly=true';"
+            >
+              Nährwerte, Allergen- und Zusatzstofflisten anzeigen
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <div class="panel_wrapper">
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Allergene und Zusatzstoffe </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="content_allergens">
+            <p>
+              Allergene: a Enthält glutenhaltiges Getreide • a1 Enthält Weizen •
+              a2 Enthält Weizen und Gerste • a3 Enthält Weizen und Roggen • b
+              Enthält Krebstiere • c Enthält Fische • d Enthält Schalenfrüchte •
+              d1 Enthält Cashewkerne • d2 Enthält Mandeln • e Enthält Erdnüsse •
+              f Enthält Sojabohnen • g Enthält Milch (einschl. Laktose) • h
+              Enthält Sellerie • i Enthält Senf • j Enthält Sesamsamen • k
+              Enthält Schwefeldioxid und Sulfite >10mg/kg oder 10mg/l • l
+              Enthält Ei • m Enthält Lupinen • n Enthält Weichtiere.
+              Kreuzkontaminationen können nicht ausgeschlossen werden.
+              Zusatzstoffe: 1 mit Farbstoff • 2 konserviert • 3 mit
+              Antioxidationsmitteln • 4 mit Geschmacksverstärker • 5 mit
+              Süßungsmittel: Saccharin • 6 mit Zuckerart und Süßungsmittel • 7
+              enthält eine Phenylalanin-Quelle • 8 coffeinhaltig • 9 Phosphat •
+              10 enthält Sulfite • 11 Emulgator • 12 Backtriebmittel • 13
+              Feuchthaltemittel • 14 Verdickungsmittel • 15 Säureregulator • 16
+              Geliermittel • 17 Stabilisator • 18 Säuerungsmittel • 19 Aromen.
+              Alle Preise in €. Preise inkl. gesetzlicher Mehrwertsteuer,
+              Änderungen vorbehalten. Blechinnenmaße gerundet (ca. 25cm / ca.
+              28cm / ca. 32cm). *Vegane Filetstücke Hähnchen-Style Alle
+              Nährwerte, die für den Nutri-Score genutzt werden, stammen aus
+              theoretischen Berechnungen (100 g/ Portion), die auf den Daten
+              unserer Lieferanten beruhen. Die tatsächlichen Werte können durch
+              die Verarbeitung der Produkte in den Stores leicht variieren. Bei
+              den Pizzarezepturen wurde als Grundlage zur Ermittlung des
+              Nutri-Scores die Größe Medium verwendet.
+            </p>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
   </div>
-</ng-container>
+</div>
+<div *ngIf="pizzaData == undefined">
+  No Pizza found!
+</div>

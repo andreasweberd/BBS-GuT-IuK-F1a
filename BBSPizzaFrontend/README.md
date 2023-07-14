@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Deploy an Angular Application to IIS
+
+Create a production build:
+ng build --prod
+
+This builds your application and outputs it to your outDir defined in .angular-cli.json. By default this will be toh\dist.
+
+You can take the contents of this folder and drop it into the root of your Web server and everything will work just fine. For example, on my system IIS is installed in C:\inetpub and hence the default web root is C:\inetpub\wwwroot. After building: deploy your application by copying the contents of your toh project’s dist folder into the wwwroot folder.

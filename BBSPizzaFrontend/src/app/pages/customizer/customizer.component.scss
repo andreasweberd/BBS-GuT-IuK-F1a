@@ -1,26 +1,74 @@
 .customizer_wrapper{
-  min-width: 32rem;
-  min-height: calc(100vh - 32rem);
+  width: 32rem;
+  max-height: calc(100vh - 4rem);
   padding: 0.5rem;
-  background-image: url('/assets/images/DE_PDES_de_hero_7658.webp');
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  & .button_wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
 
   & .header_wrapper{
-    min-height: 16rem;
+    min-height: 22rem;
     display: flex;
     justify-content: center;
     align-items: end;
     padding: 0.2rem 0 0.2rem 0;
 
-    & .mat-mdc-card{
-      width: 100%;
+    & .mat-mdc-card-header{
+      flex-direction: column;
     }
   }
 
   & .content_wrapper{
+    & mat-radio-group{
+      display: flex;
+      justify-content: space-between;
+    }
+    & .content_ingredients{
+      & .ingredients {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 0;
+        margin: 0.5rem 0;
+        border-radius: 20px;
+        background-color: #E0E0E0;
+
+        & .ingredient_name{
+          padding-left: 0.5rem;
+        }
+
+        & .ingredient_price{
+          padding: 0 0.5rem;
+        }
+
+        & button{
+          height: 1.5rem;
+          width: 1.5rem;
+          margin-left: auto;
+          margin-right: 1rem;
+        }
+      }
+      & p {
+        margin: unset;
+      }
+    }
+
     & ::ng-deep{
       & .panel_wrapper{
         padding: 0.2rem 0 0.2rem 0;
+
+        & .mat-expansion-panel-header-description{
+          justify-content: end;
+        }
+
+        & .mat-mdc-form-field{
+          width: 100%;
+        }
       }
     }
   }
