@@ -26,4 +26,8 @@ public class PizzaService {
         return pizzaRepository.findAll();
     }
 
+    public void putPizza(Pizza pizza) {
+        pizzaRepository.save(pizza);
+    }
+
 }
