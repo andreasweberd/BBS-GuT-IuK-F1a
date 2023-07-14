@@ -8,8 +8,6 @@ import {FormControl} from "@angular/forms";
 import { MatGridListModule } from "@angular/material/grid-list";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
-
-
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
@@ -27,9 +25,6 @@ export class OffersComponent {
   sizes = new FormControl();
   selectedSize: any;
   cartPrice: number = 0;
-
-  constructor(private snackBar: MatSnackBar) {
-  }
 
 ngOnInit() {
   this.createPizzas();

@@ -38,6 +38,24 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { OffersComponent } from './pages/offers/offers.component';
+import { DeliveryMapComponent } from '../delivery-map/delivery-map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { CustomizerComponent } from './pages/customizer/customizer.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ChecklistDatabase } from './pages/customizer/customizer.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { OffersComponent } from './pages/offers/offers.component';
 import { MatSelectModule } from "@angular/material/select";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIf, NgFor } from '@angular/common';
@@ -61,12 +79,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    LeafletModule,
+    MatDialogModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatInputModule,
+    MatDividerModule,
+    MatExpansionModule,
     MatCardModule,
-    MatCardModule,
-    MatSelectModule,
     MatSelectModule,
     MatGridListModule,
     FormsModule,
@@ -90,7 +116,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatListModule,
     MatButtonModule,
     MatSnackBarModule,
-    NgFor
+    NgFor,
+    NgIf
+  ],
+  providers: [
+    MatDialog,
+    ChecklistDatabase
   ],
   providers: [
     NgFor,
