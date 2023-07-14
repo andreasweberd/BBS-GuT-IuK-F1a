@@ -18,9 +18,9 @@
         {{ Pizza.description }}
       </p>
     </mat-card-content>
-    <mat-card-content>
+    <mat-card-content *ngFor="let ingerdients of Pizza.ingredients">
       <p>
-        {{ Pizza.ingredients }}
+        {{ ingerdients.name }}
       </p>
     </mat-card-content>
     <mat-card-content>
@@ -35,7 +35,7 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="example-button-row">
-      <button mat-flat-button>Konfigurieren</button>
+      <button mat-flat-button (click)="openDialog('0ms', '0ms', Pizza)">Konfigurieren</button>
       <button mat-flat-button color="primary" (click)="addToCart(Pizza)">Zum Warenkorb</button>
       </div>
     </mat-card-actions>
@@ -81,6 +81,4 @@
       </div>
     </div>
   </mat-grid-tile>
-
-
 </mat-grid-list>

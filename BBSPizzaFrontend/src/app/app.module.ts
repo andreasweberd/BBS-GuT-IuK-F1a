@@ -17,7 +17,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ChecklistDatabase } from './pages/customizer/customizer.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
@@ -70,8 +69,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NgIf
   ],
   providers: [
-    MatDialog,
-    ChecklistDatabase
+    MatDialog
   ],
   bootstrap: [AppComponent]
 })
